@@ -119,14 +119,16 @@ textarea {
 
 .top-marker {
   fill: salmon;
-  transition: all 0.2s; 
-  -webkit-transition: all 0.2s;
+  stroke: #333;
+  stroke-width: 0;
+  transition: all 0.9s; 
+  -webkit-transition: all 0.9s;
 }
 
-.top-marker:hover {
-  fill: red;
-  stroke: darkred;
-  stroke-width: 6;
+.marker-clicked {
+  stroke-width: 3;
+  -webkit-transform: translateY(0px); 
+  transform: translateY(0px);
 }
 
 #mountain-route, #tree-route, #pond-route {
@@ -197,6 +199,38 @@ textarea {
   from { stroke-dashoffset: 2325; }
   to { stroke-dashoffset: 0; stroke-width: 10; stroke: #000; }
 }
+
+
+
+/* ---------- CLICK-ME ANIMATION ----------- */
+.click-me {
+  stroke-width: 0;
+  animation: click-me 3.5s ease infinite;
+  -webkit-animation: click-me 3.5s ease infinite;
+}
+
+@keyframes click-me {
+  0% { transform: translateY(0px); }
+  15% { transform: translateY(-20px); }
+  19% { stroke-width: 0;}
+  20% { stroke-width: 4;}
+  29% { stroke-width: 0;}
+  30% { stroke-width: 4;}
+  70% { transform: translateY(-20px); stroke-width: 4;}
+  80% { transform: translateY(0px); stroke-width: 0;}
+}
+
+@-webkit-keyframes click-me {
+  0% { -webkit-transform: translateY(0px); }
+  15% { -webkit-transform: translateY(-20px); }
+  19% { stroke-width: 0;}
+  20% { stroke-width: 4;}
+  29% { stroke-width: 0;}
+  30% { stroke-width: 4;}
+  70% { -webkit-transform: translateY(-20px); stroke-width: 4;}
+  80% { -webkit-transform: translateY(0px); stroke-width: 0;}
+}
+
 
 /* ---------------------------------------------------------------------------------
    animation technique from here - https://css-tricks.com/svg-line-animation-works/

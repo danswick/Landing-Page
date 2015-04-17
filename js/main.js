@@ -1,13 +1,4 @@
-/*window.onLoad = function() {
-	var sceneSVG = document.getElementById('route-sketch');
-	var svgDoc = sceneSVG.contentDocument; 
-	var mountainRoute = svgDoc.getElementById('mountain-route');
-	
 
-	mountainRoute.setAttribute("class", 'mountain-route-animate');
-};*/
-
-/*var mountainTarget = document.querySelector('#mountain-background');*/
 var mountainTarget = document.querySelector('.mountain-background');
 var mountainRoute = document.querySelector('#mountain-route');
 function mountainClick() {
@@ -82,5 +73,7 @@ markerTarget.addEventListener('click', function() {
 	pondClick();
 	treeClick();
 	mountainClick();
+	markerTarget.classList.toggle('marker-clicked');
+	markerTarget.classList.toggle('click-me');
 });
 
