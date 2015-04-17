@@ -119,6 +119,13 @@ textarea {
 
 .top-marker {
   fill: salmon;
+  fill-opacity:1;
+  fill-rule:evenodd;
+  stroke:#000000;
+  stroke-width:1px;
+  stroke-linecap:butt;
+  stroke-linejoin:miter;
+  stroke-opacity:1;
   stroke: #333;
   stroke-width: 0;
   transition: all 0.9s; 
@@ -127,8 +134,8 @@ textarea {
 
 .marker-clicked {
   stroke-width: 3;
-  -webkit-transform: translateY(0px); 
-  transform: translateY(0px);
+  /*transform: translateY(0px);
+  -webkit-transform: translateY(0px);*/
 }
 
 #mountain-route, #tree-route, #pond-route {
@@ -459,4 +466,12 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+}
+
+@media screen and (max-width: 620px) {
+  .svg-container {
+    width: 98%;
+    margin: 2% auto;
+    padding: 0 1%;
+  }
 }
