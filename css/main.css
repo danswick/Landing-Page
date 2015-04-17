@@ -132,18 +132,31 @@ textarea {
   -webkit-transition: all 0.9s;
 }
 
+.marker-click-box {
+  fill: transparent;
+  stroke-width: 0;
+}
+
 .marker-clicked {
   stroke-width: 3;
   /*transform: translateY(0px);
   -webkit-transform: translateY(0px);*/
 }
 
-#mountain-route, #tree-route, #pond-route {
+#mountain-route, #tree-route, #pond-route {    
     stroke-dasharray: 25;
     fill: transparent;
     stroke: #aaa;
     stroke-width: 3;
 }
+
+.for-animation {
+  fill: transparent;
+  stroke: #000;
+  stroke-width: 0;
+}
+
+
 
 /* ---------- MOUNTAIN ANIMATION ----------- */
 .mountain-route-animate {
@@ -153,6 +166,7 @@ textarea {
     stroke-dashoffset: 1911;
     animation: mountain-dash 1s linear forwards;
     -webkit-animation: mountain-dash 0.5s linear forwards;
+    -moz-animation: mountain-dash 0.5s linear forwards;
 }
 
 @keyframes mountain-dash {
@@ -161,6 +175,11 @@ textarea {
 }
 
 @-webkit-keyframes mountain-dash {
+  from { stroke-dashoffset: 1911; }
+  to { stroke-dashoffset: 0; stroke-width: 10; stroke: #000; }
+}
+
+@-moz-keyframes mountain-dash {
   from { stroke-dashoffset: 1911; }
   to { stroke-dashoffset: 0; stroke-width: 10; stroke: #000; }
 }
@@ -174,6 +193,7 @@ textarea {
     stroke-dashoffset: 1810;
     animation: pond-dash 1s linear forwards;
     -webkit-animation: pond-dash 0.5s linear forwards;
+    -moz-animation: pond-dash 0.5s linear forwards;
 }
 
 @keyframes pond-dash {
@@ -182,6 +202,11 @@ textarea {
 }
 
 @-webkit-keyframes pond-dash {
+  from { stroke-dashoffset: 1810; }
+  to { stroke-dashoffset: 0; stroke-width: 10; stroke: #000; }
+}
+
+@-moz-keyframes pond-dash {
   from { stroke-dashoffset: 1810; }
   to { stroke-dashoffset: 0; stroke-width: 10; stroke: #000; }
 }
@@ -195,6 +220,7 @@ textarea {
     stroke-dashoffset: 2325;
     animation: tree-dash 1s linear forwards;
     -webkit-animation: tree-dash 0.5s linear forwards;
+    -moz-animation: tree-dash 0.5s linear forwards;
 }
 
 @keyframes tree-dash {
@@ -207,6 +233,11 @@ textarea {
   to { stroke-dashoffset: 0; stroke-width: 10; stroke: #000; }
 }
 
+@-moz-keyframes tree-dash {
+  from { stroke-dashoffset: 2325; }
+  to { stroke-dashoffset: 0; stroke-width: 10; stroke: #000; }
+}
+
 
 
 /* ---------- CLICK-ME ANIMATION ----------- */
@@ -214,6 +245,7 @@ textarea {
   stroke-width: 0;
   animation: click-me 3.5s ease infinite;
   -webkit-animation: click-me 3.5s ease infinite;
+  -moz-animation: click-me 3.5s ease infinite;
 }
 
 @keyframes click-me {
@@ -238,6 +270,48 @@ textarea {
   80% { -webkit-transform: translateY(0px); stroke-width: 0;}
 }
 
+@-moz-keyframes click-me {
+  0% { -moz-transform: translateY(0px); }
+  15% { -moz-transform: translateY(-20px); }
+  19% { stroke-width: 0;}
+  20% { stroke-width: 4;}
+  29% { stroke-width: 0;}
+  30% { stroke-width: 4;}
+  70% { -moz-transform: translateY(-20px); stroke-width: 4;}
+  80% { -moz-transform: translateY(0px); stroke-width: 0;}
+}
+
+/* ---------- GRASS WIGGLE ----------- */
+.grass:hover {
+  stroke: #000;
+  animation: grass-wiggle 0.7s linear infinite;
+  -webkit-animation: grass-wiggle 0.7s linear infinite;
+  -moz-animation: grass-wiggle 0.7s linear infinite;
+}
+
+@-webkit-keyframes grass-wiggle {
+  0% { -webkit-transform: rotate(5deg); -webkit-transform-origin: 50% 50%; stroke-width: 0;}
+  25% { -webkit-transform: rotate(-5deg); -webkit-transform-origin: 50% 50%; }
+  50% { -webkit-transform: rotate(5deg); -webkit-transform-origin: 50% 50%; stroke-width: 5;}
+  75% { -webkit-transform: rotate(-5deg); -webkit-transform-origin: 50% 50%; }
+  100% { -webkit-transform: rotate(0deg); -webkit-transform-origin: 50% 50%; stroke-width: 0;}
+}
+
+@-moz-keyframes grass-wiggle {
+  0% { -moz-transform: rotate(5deg); -moz-transform-origin: 50% 50%; stroke-width: 0;}
+  25% { -moz-transform: rotate(-5deg); -moz-transform-origin: 50% 50%; }
+  50% { -moz-transform: rotate(5deg); -moz-transform-origin: 50% 50%; stroke-width: 5;}
+  75% { -moz-transform: rotate(-5deg); -moz-transform-origin: 50% 50%; }
+  100% { -moz-transform: rotate(0deg); -moz-transform-origin: 50% 50%; stroke-width: 0;}
+}
+
+@keyframes grass-wiggle {
+  0% { transform: rotate(5deg); transform-origin: 50% 50%; stroke-width: 0;}
+  25% { transform: rotate(-5deg); transform-origin: 50% 50%; }
+  50% { transform: rotate(5deg); transform-origin: 50% 50%; stroke-width: 5;}
+  75% { transform: rotate(-5deg); transform-origin: 50% 50%; }
+  100% { transform: rotate(0deg); transform-origin: 50% 50%; stroke-width: 0;}
+}
 
 /* ---------------------------------------------------------------------------------
    animation technique from here - https://css-tricks.com/svg-line-animation-works/
@@ -266,6 +340,7 @@ textarea {
   fill: transparent;
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
   
 }
 
@@ -275,6 +350,7 @@ textarea {
   fill: transparent;
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
   
 }
 
@@ -284,17 +360,34 @@ textarea {
   fill: transparent;
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
   
 }
 
 .text-animate {
   -webkit-transform: translate(-90px, 0px); /* Chrome, Safari, Opera */
+  -moz-transform: translate(-90px, 0px); /* Chrome, Safari, Opera */
   transform: translate(-90px, 0px);
   fill: #000;
 }
 
+.path-target {
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+}
 
+/*.mountain-background.path-target:hover {
+  fill: lightpink;
+}
 
+.tree-inner:hover {
+  fill: green;
+}
+
+.pond-inner:hover {
+  fill: lightblue;
+}*/
 
 
 
@@ -474,4 +567,14 @@ textarea {
     margin: 2% auto;
     padding: 0 1%;
   }
+  
+  /*attempt to make marker bigger on mobile. No go
+  .top-marker {
+    transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    -moz-transform: scale(1.5, 1.5);
+    transform-origin: 50%, 50%;
+    -webkit-transform-origin: 50%, 50%;
+    -moz-transform-origin: 50%, 50%;
+  }*/
 }
